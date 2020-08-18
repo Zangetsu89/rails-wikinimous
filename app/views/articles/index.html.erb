@@ -1,0 +1,8 @@
+<div class="index_style">
+  <ul>
+    <% @articles.each do |article| %>
+    <li><%= link_to article.title, article_path(article.id) %></li>
+    <li><%= article.content%></li>
+    <% end %>
+  </ul>
+</div>

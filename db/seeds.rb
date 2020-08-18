@@ -2,6 +2,16 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
+require "faker"
+Article.destroy_all
+puts 'Creating 10 fake articles...'
+10.times do
+  article = Article.new(
+    title: Faker::Company.name,
+    content: Faker::String.random(length: 3..12),
+  )
+  article.save!
+end
+puts 'Finished!'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
